@@ -49,7 +49,7 @@ class MovieEngine(KnowledgeEngine):  # all the rules go here
                     if m["year"] >= self.min_year and m["year"] <= self.max_year:
                         self.results.append(m)
 
-  # Drama genre rules
+    # Drama genre rules
 
     @Rule(MovieFact(genre="Drama", film_type="Feature Film"))
     def drama_feature_film(self):
@@ -102,3 +102,11 @@ class MovieEngine(KnowledgeEngine):  # all the rules go here
                 if m["duration"] >= self.min_dur and m["duration"] <= self.max_dur:
                     if m["year"] >= self.min_year and m["year"] <= self.max_year:
                         self.results.append(m)
+
+
+if __name__ == "__main__":
+    engine = MovieEngine(min_dur=60, max_dur=200, min_year=1990, max_year=2020)
+    engine.reset()
+    engine.declare(MovieFact(genre="Action", film_type="Feature Film"))
+    engine.run()
+    print(engine.results)
