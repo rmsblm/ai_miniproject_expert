@@ -1,5 +1,5 @@
 import streamlit as st
-from rules import MovieEngine, MovieFact
+from inferenceEngine import MovieEngine, MovieFact
 
 # --- PAGE CONFIG ---
 # Added the popcorn emoji as the browser tab icon
