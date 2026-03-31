@@ -1,3 +1,9 @@
+import collections
+# FIX: Compatibility patch for Python 3.10+ and Experta
+if not hasattr(collections, 'Mapping'):
+    import collections.abc
+    collections.Mapping = collections.abc.Mapping
+
 from experta import *
 from knowledgeBase import movies
 
